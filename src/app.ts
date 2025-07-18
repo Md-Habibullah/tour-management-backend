@@ -6,11 +6,13 @@ import { globalErrorHandler } from './app/middlewares/globalErrorhaldler';
 import notFound from './app/middlewares/notFound';
 import passport from 'passport';
 import expressSession from 'express-session'
+import { envVars } from './app/config/env';
+import './app/config/passport'
 
 const app = express();
 app.use(express.json())
 app.use(expressSession({
-    secret: "",
+    secret: envVars.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
