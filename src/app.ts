@@ -10,15 +10,15 @@ import { envVars } from './app/config/env';
 import './app/config/passport'
 
 const app = express();
-app.use(express.json())
 app.use(expressSession({
     secret: envVars.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
-app.use(cookieParser())
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(express.json())
+app.use(cookieParser())
 app.use(cors())
 
 app.use('/api/v1', router)

@@ -40,7 +40,7 @@ passport.use(
             return done(null, isUserExist)
 
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             done(error)
         }
     })
@@ -74,8 +74,9 @@ passport.use(
                             providerId: profile.id
                         }]
                     })
-                    return done(null, user)
+
                 }
+                return done(null, user)
 
             } catch (error) {
                 // eslint-disable-next-line no-console
